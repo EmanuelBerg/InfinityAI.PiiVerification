@@ -27,7 +27,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.REGISTRY_LOGIN_SERVER }}/infinityair-component-piiverification:latest
-            ${{ secrets.REGISTRY_LOGIN_SERVER }}/infinityair-componoent-piverification:${{ github.sha }}
+            ${{ secrets.REGISTRY_LOGIN_SERVER }}/infinityai-component-piiverification:latest
+            ${{ secrets.REGISTRY_LOGIN_SERVER }}/infinityai-componoent-piverification:${{ github.sha }}
           secrets: |
             NUGET_TOKEN=${{ secrets.NUGET_TOKEN }}

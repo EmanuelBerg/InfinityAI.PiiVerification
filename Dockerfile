@@ -5,6 +5,13 @@ ARG TARGETARCH
 
 WORKDIR /source
 
+RUN --mount=type=secret,id=NUGET_TOKEN \
+    dotnet nuget add source "https://nuget.pkg.github.com/emanuelberg/index.json" \
+      --name github \
+      --username emanuelberg \
+      --password "$(cat /run/secrets/NUGET_TOKEN)" \
+      --store-password-in-clear-text
+
 COPY *.csproj .
 
 RUN dotnet restore -a $TARGETARCH

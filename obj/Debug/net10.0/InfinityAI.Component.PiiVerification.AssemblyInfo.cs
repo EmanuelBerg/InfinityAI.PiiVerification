@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InfinityAI.Component.PiiVerification")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69d8903ab1b8dc3c103fb36f57301ece6a483638")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c81de9d924fa8d92cacbb70032b3d5e60545a75")]
 [assembly: System.Reflection.AssemblyProductAttribute("InfinityAI.Component.PiiVerification")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InfinityAI.Component.PiiVerification")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

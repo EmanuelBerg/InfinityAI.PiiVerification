@@ -5,15 +5,6 @@ ARG TARGETARCH
 
 WORKDIR /source
 
-
-# GitHub Packages feed (uses GH_NUGET_TOKEN secret)
-RUN --mount=type=secret,id=NUGET_TOKEN \
-    dotnet nuget add source "https://nuget.pkg.github.com/emanuelberg/index.json" \
-      --name github \
-      --username emanuelberg \
-      --password "$(cat /run/secrets/NUGET_TOKEN)" \
-      --store-password-in-clear-text
-
 COPY *.csproj .
 
 RUN dotnet restore -a $TARGETARCH

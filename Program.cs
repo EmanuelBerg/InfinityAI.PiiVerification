@@ -112,7 +112,6 @@ static bool LooksLikeEmail(string text)
         @"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}",
         RegexOptions.IgnoreCase);
 }
-
 static bool LooksLikeSwedishPersonalNumber(string text)
 {
     return Regex.IsMatch(

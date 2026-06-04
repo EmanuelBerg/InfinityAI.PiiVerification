@@ -2,7 +2,6 @@ using InfinityAI.Pipeline.Contracts;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
@@ -112,9 +111,15 @@ static bool LooksLikeEmail(string text)
         @"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}",
         RegexOptions.IgnoreCase);
 }
+
+// Century prefix (19|20) and separator [-+] are both mandatory so that arbitrary
+// digit sequences in documents (VLAN IDs, account numbers, phone numbers) do not
+// produce false-positive blocks.  Month (01-12) and day (01-31) ranges are
+// validated to further reduce coincidental matches.
+// Supports both long format (YYYYMMDD-XXXX) and short format (YYMMDD-XXXX).
 static bool LooksLikeSwedishPersonalNumber(string text)
 {
     return Regex.IsMatch(
         text,
-        @"\b(19|20)?\d{6}[-+]?\d{4}\b");
+        @"\b((19|20)\d{2}|\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[-+]\d{4}\b");
 }
